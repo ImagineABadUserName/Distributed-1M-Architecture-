@@ -1,74 +1,80 @@
-# React + TypeScript + Vite
+# MERN Stack Project Starter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a complete boilerplate for a Full Stack MERN application. It is set up with a **React + Vite** frontend (styled with Tailwind CSS) and a **Node.js + Express** backend (connected to MongoDB).
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Frontend (Client):**
+- React (Vite)
+- Tailwind CSS (v3)
+- PostCSS & Autoprefixer
 
-## React Compiler
+**Backend (Server):**
+- Node.js
+- Express.js
+- Mongoose (MongoDB)
+- Dotenv (Environment Variables)
+- Cors (Cross-Origin Resource Sharing)
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+---
 
-## Expanding the ESLint configuration
+## 📂 Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```bash
+root/
+├── client/          # Frontend (React + Tailwind)
+│   ├── src/
+│   ├── public/
+│   ├── tailwind.config.js
+│   └── package.json
+├── server/          # Backend (Node + Express)
+│   ├── index.js     # Entry point
+│   ├── .env         # Environment variables (not pushed to git)
+│   └── package.json
+└── README.md
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🛠️ Installation & Setup
+Follow these steps to get the project running on your local machine.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Prerequisites
+Make sure you have Node.js installed on your computer.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. Install Dependencies
+You need to install dependencies for both the client and server folders.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Setup Backend:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Bash
+cd server
+npm install
+Setup Frontend:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# Distributed-1M-Architecture-
+Bash
+cd ../client
+npm install
+⚙️ Configuration (Environment Variables)
+Navigate to the server folder.
+
+Create a file named .env.
+
+Add your MongoDB connection string and port:
+
+Code snippet
+PORT=5000
+MONGO_URI=your_mongodb_connection_string_here
+▶️ Running the Application
+For development, you need to run the backend and frontend in two separate terminals.
+
+Terminal 1: Start Backend
+
+Bash
+cd server
+npm run dev
+Server will start on: http://localhost:5000
+
+Terminal 2: Start Frontend
+
+Bash
+cd client
+npm run dev
+Client will start on: http://localhost:5173
